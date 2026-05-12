@@ -1,4 +1,4 @@
-package com.globexial.service;
+package com.globexial.service.factory;
 
 import com.globexial.model.dto.response.JournalEntryResponseDto;
 import com.globexial.model.entity.JournalEntry;
@@ -8,7 +8,6 @@ import com.globexial.model.enums.MovementType;
 import com.globexial.model.event.StockMovementCreatedEvent;
 import com.globexial.repository.AccountRepository;
 import com.globexial.repository.JournalEntryRepository;
-import com.globexial.repository.JournalItemRepository;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

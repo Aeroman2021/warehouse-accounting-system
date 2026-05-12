@@ -1,4 +1,4 @@
-package com.globexial.service;
+package com.globexial.service.factory;
 
 import com.globexial.model.dto.response.JournalEntryResponseDto;
 import com.globexial.model.enums.MovementType;
