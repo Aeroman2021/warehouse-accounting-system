@@ -49,5 +49,9 @@ public class AccountServiceImpl implements AccountService {
         return new PageImpl<>(products, pageable, products.size());
     }
 
-
+    @Override
+    public Account findByCode(String code) {
+        return accountRepository.findByCode(code).orElseThrow(()->
+                new ResourceNotFoundException("%s with id %s not found".formatted("account", code)));
+    }
 }

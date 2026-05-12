@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,14 +21,15 @@ public class JournalEntry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String referencedNumber;
+    private String referenceNumber;
     private String description;
 
     @Enumerated(EnumType.STRING)
     private EntryStatus entryStatus;
 
-    @OneToMany(mappedBy = "journalEntryId")
+    @OneToMany(mappedBy = "journalEntry",cascade = CascadeType.ALL)
     private List<JournalItem> journalItemList;
 
     private LocalDateTime createdAt;
+
 }

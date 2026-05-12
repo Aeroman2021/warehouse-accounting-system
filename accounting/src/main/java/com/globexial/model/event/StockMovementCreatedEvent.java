@@ -12,6 +12,7 @@ public record StockMovementCreatedEvent(
         MovementType movementType,
         Integer quantity,
         BigDecimal totalPrice,
+        BigDecimal avgCost,
         Timestamp createdAt
 ) {
 }

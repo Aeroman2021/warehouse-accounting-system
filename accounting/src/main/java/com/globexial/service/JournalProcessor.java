@@ -1,10 +1,10 @@
 package com.globexial.service;
 
-import com.globexial.model.dto.request.JournalEntryRequestDto;
 import com.globexial.model.dto.response.JournalEntryResponseDto;
+import com.globexial.model.enums.MovementType;
 import com.globexial.model.event.StockMovementCreatedEvent;
-import com.globexial.service.base.BaseCrud;
 
-public interface JournalEntryService extends BaseCrud<JournalEntryResponseDto,JournalEntryRequestDto> {
+public interface JournalProcessor {
+    MovementType getType();
     JournalEntryResponseDto process(StockMovementCreatedEvent event);
 }

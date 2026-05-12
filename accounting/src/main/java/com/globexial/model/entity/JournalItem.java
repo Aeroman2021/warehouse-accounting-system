@@ -23,7 +23,7 @@ public class JournalItem {
 
     @ManyToOne
     @JoinColumn(name = "journal_entry_id")
-    private JournalEntry journalEntryId;
+    private JournalEntry journalEntry;
 
     private BigDecimal debit;
     private BigDecimal credit;

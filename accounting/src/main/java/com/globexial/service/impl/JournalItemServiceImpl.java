@@ -34,7 +34,7 @@ public class JournalItemServiceImpl implements JournalItemService {
 
         var savedJournalItem = JournalItem.builder()
                 .accountId(account)
-                .journalEntryId(journalEntry)
+                .journalEntry(journalEntry)
                 .debit(journalItemRequestDto.debit())
                 .credit(journalItemRequestDto.credit())
                 .description(journalItemRequestDto.description())
@@ -52,7 +52,7 @@ public class JournalItemServiceImpl implements JournalItemService {
                 new ResourceNotFoundException("%s with id %d not found".formatted("journal item",id)));
 
         return new JournalItemResponseDto(journalItem.getId(), journalItem.getAccountId().getId(),
-                journalItem.getJournalEntryId().getId(), journalItem.getDebit(), journalItem.getCredit(),
+                journalItem.getJournalEntry().getId(), journalItem.getDebit(), journalItem.getCredit(),
                 journalItem.getDescription());
     }
 
@@ -62,8 +62,12 @@ public class JournalItemServiceImpl implements JournalItemService {
         var JournalItems =
                 journalItemRepository.findAll(pageable)
                         .stream()
-                        .map(journalItem -> new JournalItemResponseDto(journalItem.getId(), journalItem.getAccountId().getId(),
-                                journalItem.getJournalEntryId().getId(), journalItem.getDebit(), journalItem.getCredit(),
+                        .map(journalItem -> new JournalItemResponseDto(
+                                journalItem.getId(),
+                                journalItem.getAccountId().getId(),
+                                journalItem.getJournalEntry().getId(),
+                                journalItem.getDebit(),
+                                journalItem.getCredit(),
                                 journalItem.getDescription()))
                         .toList();
 
